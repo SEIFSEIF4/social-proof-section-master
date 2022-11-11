@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap"); /* Start Variables */
+:root {
+	/* Primary */
+	--VeryDarkMagenta-color: hsl(300, 43%, 22%);
+	--SoftPink-color: hsl(333, 80%, 67%);
+	/* Neutral */
+	--DarkGrayishMagenta-color: hsl(303, 10%, 53%);
+	--LightGrayishMagenta-color: hsl(300, 24%, 96%);
+	--White-color: hsl(0, 0%, 100%);
+	/*Font size*/
+	--word-Font-size: 1rem;
+}
+/* End Variables */
+/* End Global Rules */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: "League Spartan", sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	line-height: 1.3;
+	text-rendering: optimizeSpeed;
+	background-image: url(images/bg-pattern-top-mobile.svg),
+		url(images/bg-pattern-bottom-mobile.svg);
+	background-position: left -24px top -5px, right -15px bottom -220px;
+	background-repeat: no-repeat, no-repeat;
+	background-attachment: fixed, fixed;
+	background-size: contain, contain;
+}
+.container {
+	max-width: 30rem;
+	height: 100vh;
+	margin: 1rem;
+	border-radius: 0.3125rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+/* .bg::before {
+	top: 0;
+	left: 0;
+	background-size: contain;
+	background: url(images/bg-pattern-top-mobile.svg) no-repeat top right;
+}
+.bg::after {
+	top: 100%;
+	left: 100%;
+	background: url(images/bg-pattern-bottom-mobile.svg) no-repeat top left;
+	background-size: contain;
+}
+.bg::after,
+.bg::before {
+	position: absolute;
+	content: "";
+	width: 100vw;
+	max-width: 100vh;
+	background-size: auto;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+} */
+
+.container .heading {
+	margin: 1rem;
+}
+
+.container .heading h1 {
+	font-size: clamp(1.375rem, 2.0625rem, calc(2.0625rem + 1%));
+	font-weight: 700;
+	text-align: center;
+	padding: 2rem 1rem 1rem;
+	color: var(--VeryDarkMagenta-color);
+}
+
+.container .heading p {
+	text-align: center;
+	font-weight: 400;
+	padding: 0.75rem;
+	color: var(--DarkGrayishMagenta-color);
+}
+
+.container .rates {
+	width: 100%;
+	margin: 1rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+}
+
+.container .rates .rate {
+	width: 100%;
+	padding: 0.625rem;
+	margin: 1rem;
+	text-align: center;
+	border-radius: 5px;
+	background-color: var(--LightGrayishMagenta-color);
+}
+
+.container .rates .rate p {
+	color: var(--VeryDarkMagenta-color);
+	font-weight: 500;
+}
+
+.container .comments {
+	display: grid;
+	justify-content: center;
+	gap: 10px;
+	grid-template-columns: repeat(1, 1fr);
+}
+.container .comments .comment {
+	height: 13rem;
+	background-color: var(--VeryDarkMagenta-color);
+	border-radius: 0.625rem;
+	/* margin-inline: auto; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.container .comments .comment .pfp {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+	padding-left: 1rem;
+}
+
+.container .comment img {
+	border-radius: 50%;
+	width: 40px;
+}
+
+.container .comment .pfp-det {
+	margin-inline-start: 1rem;
+}
+
+.container .comment .pfp-det h2 {
+	font-size: var(--word-Font-size);
+	color: var(--White-color);
+}
+.container .comment .pfp-det p {
+	font-size: calc(var(--word-Font-size) - 0.0625rem);
+	color: var(--SoftPink-color);
+	margin-top: 0.1875rem;
+}
+
+.container .comment .text {
+	padding: 0 1rem 1rem;
+	color: var(--White-color);
+}
+
+.container .comment .text p {
+	color: var(--White-color);
+	font-weight: 400;
+	opacity: 0.7;
+}
+
+@media (width>=786px) {
+	.container {
+		max-width: calc(100vw - 15vw);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	.container .comments {
+		grid-column: 1/-1;
+		display: grid;
+		align-items: center;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.875rem;
+	}
+	.container .rates .rate {
+		width: 65%;
+	}
+	.container .heading h1 {
+		font-size: 3.75rem;
+		text-align: start;
+		margin-inline-end: 15rem;
+	}
+	.container .heading p {
+		text-align: start;
+		margin-inline-end: 12rem;
+		font-size: 1.1875rem;
+	}
+	.container .rates .rate:first-of-type {
+		margin-right: 9rem;
+	}
+	.container .rates .rate:nth-child(2) {
+		margin-right: 6rem;
+	}
+	.container .rates .rate:last-of-type {
+		/* margin-right: 3rem; */
+	}
+	.container .comments .comment:first-of-type {
+		margin-bottom: 6rem;
+	}
+	.container .comments .comment:nth-child(2) {
+		margin-bottom: 3rem;
+	}
+	.container .comments .comment:last-of-type {
+	}
+	body {
+		background-image: url(images/bg-pattern-top-desktop.svg),
+			url(images/bg-pattern-bottom-desktop.svg);
+		background-position: left -180px top -200px, right 10px bottom -300px;
+	}
+	.container .comment:hover {
+		transform: translateY(-10px);
+		transition: 0.5s;
+	}
+}
